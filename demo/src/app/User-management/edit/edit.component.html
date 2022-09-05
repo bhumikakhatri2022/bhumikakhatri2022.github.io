@@ -1,0 +1,58 @@
+
+
+  <div class="container">
+    <h1>Edit User</h1>
+    <div>
+      <a routerLink="/list" type="button" class="btn btn-primary" style="float:right;" >Back</a>
+    </div>
+<br>
+  <form [formGroup]="EmpForm" (ngSubmit)="saveTodo()" >
+     <input type="hidden" id="name" formControlName="userId" [(ngModel)] = User.userId/>
+    <div>
+        <label>Name</label>
+        <input type="text" id="userName" class="form-control" formControlName="userName" [(ngModel)] = User.userName/>
+        <!-- <div *ngIf="EmpForm.controls['userName'].invalid && EmpForm.controls['userName'].touched" class="alert alert-danger">
+          <div *ngIf="EmpForm.controls['userName'].errors">
+          Name is required.
+        </div>
+      </div> -->
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" id="userEmail" class="form-control" formControlName="userEmail"  [(ngModel)] = User.userEmail/>
+        <!-- <div *ngIf="EmpForm.controls['userEmail'].invalid && EmpForm.controls['userEmail'].touched" class="alert alert-danger">
+          <div *ngIf="EmpForm.controls['userEmail'].errors">
+            Email is required.
+        </div>
+      </div> -->
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" id="userPassword" class="form-control" formControlName="userPassword"  [(ngModel)] = User.userPassword/>
+        <!-- <div *ngIf="EmpForm.controls['userPassword'].invalid && EmpForm.controls['userPassword'].touched" class="alert alert-danger">
+          <div *ngIf="EmpForm.controls['userPassword'].errors">
+            Password is required.
+        </div>
+      </div> -->
+    </div>
+
+    <div>
+      <label>DOb</label>
+      <input  type="text" id="userDOB" class="form-control" formControlName="userDOB"  [(ngModel)] = User.userDOB />
+
+      <!-- <div *ngIf="EmpForm.controls['userDOB'].invalid && EmpForm.controls['userDOB'].touched" class="alert alert-danger">
+        <div *ngIf="EmpForm.value.userDOB" class="code-preview">{{EmpForm.value.userDOB|date: 'dd/MM/yyyy' }}</div>
+
+        <div *ngIf="EmpForm.controls['userDOB'].errors">
+          DOB is required.
+      </div>
+    </div> -->
+
+  </div>
+  <br>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary"[disabled]="!EmpForm.valid"> Save </button>
+    <a routerLink="/list" type="button" class="btn btn-dark">Back</a>
+  </div>
+</form>
+</div>

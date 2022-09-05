@@ -1,0 +1,9 @@
+p {
+  font-family: Lato;
+}
+dp-date-picker.ng-touched {
+  border: 10px solid rebeccapurple;
+}
+dp-date-picker.ng-untouched {
+  border: 10px solid saddlebrown;
+}

@@ -1,0 +1,58 @@
+<br>
+<button type="button" class=" btn btn-info" (click)="logout()"style="float:right;">Logout</button>
+<h1>User List</h1>
+
+<a routerLink="/add" type="button" class="btn btn-primary">Add User</a>
+<div>
+  <a routerLink="/home" type="button" class="btn btn-primary" style="float:right;" >Back</a>
+
+</div>
+  <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;" >
+       <input class="form-control" type="text" placeholder="Search......."  [(ngModel)]="term" >
+  </div>
+<table  class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col"> Id </th>
+          <th scope="col"> Name </th>
+          <th scope="col"> Email </th>
+          <!-- <th scope="col"> Password </th> -->
+          <th scope="col"> DOB </th>
+          <th scope="col"> Edit </th>
+          <th scope="col"> Delete </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of Todos">
+            <th scope="row">{{todo.userId}}</th>
+            <td>{{todo.userName | titlecase}}</td>
+            <td>{{todo.userEmail}}</td>
+
+            <td>{{todo.userDOB| date: 'dd/MM/yyyy' }}</td>
+            <td><a routerLink="/edit" [queryParams]="{id: todo.userId }" class="btn btn-primary"  >Edit</a></td>
+          <td>   <button (click)="deleteTodo(todo.userId)" class="btn btn-sm btn-danger btn-delete-user" >
+
+            Delete
+        </button>
+          </td>
+        </tr>
+        <tr *ngIf="!Todos">
+          <td colspan="4" class="text-center">
+              <span class="spinner-border spinner-border-lg align-center"></span>
+          </td>
+      </tr>
+      <tr *ngIf="!Todos">
+        <td colspan="4" class="text-center">
+            <span class="spinner-border spinner-border-lg align-center"></span>
+        </td>
+    </tr>
+    <tr>
+      <td *ngIf="Todos?.length ===0">
+        <span class="search_no_results">
+          No data found
+       </span>
+      </td>
+  </tr>
+    <!-- <div *ngIf="Todos?.length === 0">No records found</div> -->
+    </tbody>
+</table>
+<!-- <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls> -->
